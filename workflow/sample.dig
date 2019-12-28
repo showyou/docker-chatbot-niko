@@ -1,0 +1,18 @@
+timezone: Asia/Tokyo
+
+_export:
+    docker:
+        image: showyou-bot-niko:0.1
+
+schedule:
+    minutes_interval>: 10
+    skip_delayed_by: 10m
+
++setup:
+    echo>: start ${session_time}
+
++main:
+    sh>: cd src && python3 crawler.py
+
++teardown:
+    echo>: finish ${session_time}
