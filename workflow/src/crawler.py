@@ -19,7 +19,8 @@ import tweepy
 
 #格納しないテキストのリスト
 g_ngTrend = [ 
-        "オフパコ" 
+        "オフパコ",
+        "フルチン"
 ]
 
 
@@ -89,6 +90,7 @@ def main():
             #print(trend)
             update_flag = check_text(trend, 
                     dbSession)
+            if(not(update_flag)): continue
             try:
                 tw.update_status("な、なによ……! ニコだって" + trend +\
                         "くらいできるんだから！！")
