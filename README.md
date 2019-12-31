@@ -1,7 +1,7 @@
 # docker-chatbot-niko
 https://twitter.com/DekiruNiko
 
-かすみんだってできますけどbot(https://twitter.com/nakasu_kasu )と多分同じです。
+かすみんだってできますけどbot(https://twitter.com/nakasu_kasu )と多分同じです。Twitterの東京のトレンドを取ってきて発言します。元ネタはスクスタの12月後半のイベントからです。
 
 
 ## 使い方
