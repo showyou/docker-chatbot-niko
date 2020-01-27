@@ -131,5 +131,6 @@ dmypy.json
 #my system
 config.json
 user.json
+ng_char.json
 mysql_data
 postgresql/data/*
