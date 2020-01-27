@@ -19,8 +19,13 @@ import tweepy
 
 #格納しないテキストのリスト
 g_ngTrend = [ 
-        "オフパコ",
-        "フルチン"
+    "オフパコ",
+    "フルチン"
+]
+
+g_ng_char = [
+    "死",
+    "殺"
 ]
 
 
@@ -34,9 +39,12 @@ def get_auth_data(fileName):
     return a
 
 
-# NGUserならTrue そうでないならFalse 
+# NGな単語かNGな語句が入っていたらTrue そうでないならFalse 
 def is_ng_trend(trend):
     if trend in g_ngTrend: return True
+    for ng_char in g_ng_char:
+        if ng_char in trend:
+            return True
     return False
 
 
