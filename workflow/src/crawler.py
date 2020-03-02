@@ -100,9 +100,16 @@ def main():
             update_flag = check_text(trend, 
                     dbSession)
             if(not(update_flag)): continue
+
+            if(random.randint(0,1)):
+                text = "な、なによ……! ニコだって" + trend +\
+                        "くらいできるんだから！！"
+            else:
+                text = trend + "と言えば？\nニコニー♪\nかわいい" +\
+                        trend +"と言えば？\nニコニー♪"
+
             try:
-                tw.update_status("な、なによ……! ニコだって" + trend +\
-                        "くらいできるんだから！！")
+                tw.update_status(text)
                 print("trend "+trend)
             except tweepy.TweepError:
                 pass
