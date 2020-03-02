@@ -12,27 +12,27 @@ import random
 #exec_path = os.path.abspath(os.path.dirname(__file__)).rsplit("/",1)[0]
 exec_path = "."
 conf_path = exec_path+"/common/config.json"
+ng_char_path = exec_path+"/common/ng_char.json"
 sys.path.insert(0,exec_path)
 from common import auth_api, model
 import tweepy
 
 
-#格納しないテキストのリスト
+# 格納しないテキストのリスト
 g_ngTrend = [ 
     "オフパコ",
     "フルチン"
 ]
 
-g_ng_char = [
-    "死",
-    "殺"
-]
+
+# ファイルから読み出すので空に変更
+g_ng_char = []
 
 
 dbSession = None
 
 
-def get_auth_data(fileName):
+def read_json(fileName):
     file = open(fileName,'r')
     a = json.loads(file.read())
     file.close()
@@ -74,7 +74,8 @@ def check_text(text, dbSession):
 def main():
 
     # twitterから発言を取ってきてDBに格納する
-    userdata = get_auth_data(conf_path)
+    userdata = read_json(conf_path)
+    g_ng_char = read_json(ng_char_path)
     tw = auth_api.connect(userdata["consumer_token"],
         userdata["consumer_secret"], exec_path+"/common/")
     #print tw.rate_limit_status()

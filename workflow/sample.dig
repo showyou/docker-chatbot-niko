@@ -5,7 +5,8 @@ _export:
         image: showyou-bot-niko:0.1
 
 schedule:
-    minutes_interval>: 10
+    #minutes_interval>: 10
+    cron>: '*/10 * * * *'
     skip_delayed_by: 10m
 
 +setup:
