@@ -17,7 +17,7 @@ RUN mkdir -p /app/scheduler/bin \
     mkdir -p /app/scheduler/conf \
     mkdir -p /app/scheduler/projects
 COPY bin/entrypoint.sh /app/scheduler/bin
-COPY conf/server.properties /app/scheduler/conf
+COPY conf/server.properties.template /app/scheduler/conf
 RUN chmod +x /app/scheduler/bin/entrypoint.sh
 
 # Set envs

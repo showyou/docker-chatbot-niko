@@ -4,7 +4,7 @@
 set -ex
 
 # rendering server.properties
-envsubst < /app/scheduler/conf/server.properties > /app/scheduler/conf/server.properties
+envsubst < /app/scheduler/conf/server.properties.template > /app/scheduler/conf/server.properties
 
 # rendering pgpass file
 echo "$POSTGRES_HOST:$POSTGRES_PORT:$POSTGRES_DB:$POSTGRES_USER:$POSTGRES_PASSWORD" > ~/.pgpass
@@ -19,4 +19,4 @@ done
 >&2 echo "Postgres is up - executing command"
 
 # run digdag server
-digdag server --config /app/scheduler/conf/server.properties
+digdag server --config /app/scheduler/conf/server.properties -O /tmp/
