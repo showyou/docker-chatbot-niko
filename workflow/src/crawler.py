@@ -52,7 +52,7 @@ def is_ng_trend(trend):
     テキストが適合している = True
     重複してたり、RTだったり = False
 """
-def check_text(text, dbSession):
+def check_text(text, dbSession, is_debug):
      
     if( is_ng_trend(text) ): return False
     #jTime = created_at + datetime.timedelta(hours = 9)
@@ -63,15 +63,15 @@ def check_text(text, dbSession):
     if( query.count() > 0 ): return False
 
     #ここに品詞判定辺り入れる
-
-    t = model.Trend()
-    t.text = text
-    #t.datetime = jTime
-    dbSession.add(t)
+    if is_debug == False:
+        t = model.Trend()
+        t.text = text
+        #t.datetime = jTime
+        dbSession.add(t)
     return True
 
 
-def main():
+def main(is_debug):
 
     # twitterから発言を取ってきてDBに格納する
     userdata = read_json(conf_path)
@@ -98,7 +98,7 @@ def main():
             if trend.startswith("#"): trend = trend[1:]
             #print(trend)
             update_flag = check_text(trend, 
-                    dbSession)
+                    dbSession, is_debug)
             if(not(update_flag)): continue
 
             if(random.randint(0,1)):
@@ -108,15 +108,20 @@ def main():
                 text = trend + "と言えば？\nニコニー♪\nかわいい" +\
                         trend +"と言えば？\nニコニー♪"
 
-            try:
-                tw.update_status(text)
-                print("trend "+trend)
-            except tweepy.TweepError:
-                pass
+            if is_debug == False:
+                try:
+                    tw.update_status(text)
+                except tweepy.TweepError:
+                    pass
+            print("trend "+trend)
             #print("flag: ", update_flag)
             if update_flag: break
         dbSession.commit()
         
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) == 2:
+        is_debug = True
+    else:
+        is_debug = False
+    main(is_debug)
