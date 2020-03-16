@@ -72,6 +72,7 @@ def check_text(text, dbSession, is_debug):
 
 
 def main(is_debug):
+    global g_ng_char
 
     # twitterから発言を取ってきてDBに格納する
     userdata = read_json(conf_path)
