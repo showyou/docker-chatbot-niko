@@ -103,10 +103,10 @@ def main(is_debug):
             if(not(update_flag)): continue
 
             if(random.randint(0,1)):
-                text = "な、なによ……! ニコだって" + trend +\
+                text = "な、なによ……! ニコだって #" + trend +\
                         "くらいできるんだから！！"
             else:
-                text = trend + "と言えば？\nニコニー♪\nかわいい" +\
+                text = "#" + trend + " と言えば？\nニコニー♪\nかわいい" +\
                         trend +"と言えば？\nニコニー♪"
 
             if is_debug == False:
