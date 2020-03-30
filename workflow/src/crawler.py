@@ -104,7 +104,7 @@ def main(is_debug):
 
             if(random.randint(0,1)):
                 text = "な、なによ……! ニコだって #" + trend +\
-                        "くらいできるんだから！！"
+                        " くらいできるんだから！！"
             else:
                 text = "#" + trend + " と言えば？\nニコニー♪\nかわいい" +\
                         trend +"と言えば？\nニコニー♪"
