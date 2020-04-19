@@ -107,7 +107,7 @@ def main(is_debug):
                 text = "な、なによ……! ニコだって" + trend +\
                         "くらいできるんだから！！"
             elif pattern == 2:
-                text = "" + trend + " と言えば？\nニコニー♪\nかわいい" +\
+                text = "" + trend + "と言えば？\nニコニー♪\nかわいい" +\
                         trend +"と言えば？\nニコニー♪"
             else:
                 text = "なぁーんでこの宇宙ナンバーワンアイドル・ニコニーが" +\
