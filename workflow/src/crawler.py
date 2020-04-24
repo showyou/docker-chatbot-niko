@@ -102,16 +102,18 @@ def main(is_debug):
                     dbSession, is_debug)
             if(not(update_flag)): continue
 
-            pattern = random.randint(1, 3)
+            pattern = random.randint(1, 4)
             if pattern == 1:
                 text = "な、なによ……! ニコだって" + trend +\
                         "くらいできるんだから！！"
             elif pattern == 2:
                 text = "" + trend + "と言えば？\nニコニー♪\nかわいい" +\
                         trend +"と言えば？\nニコニー♪"
-            else:
+            elif pattern == 3:
                 text = "なぁーんでこの宇宙ナンバーワンアイドル・ニコニーが" +\
                         trend + "なんてやらなきゃいけないのよ！"
+            else:
+                text = f"このニコニーにそんなこと聞く？  {trend}以外ありえないでしょ"
 
             if is_debug == False:
                 try:
